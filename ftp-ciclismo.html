@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Calcolatore FTP e zone di potenza ciclismo — AtletaLab</title>
+<meta name="description" content="Calcola la tua FTP (Functional Threshold Power) da un test di 20 o 60 minuti e ottieni le 7 zone di potenza secondo il modello di Coggan.">
+<link rel="canonical" href="https://TUO-UTENTE.github.io/atletalab/tools/ftp-ciclismo.html">
+<link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+
+<header class="site">
+  <div class="wrap">
+    <a class="logo" href="/"><span class="badge">AL</span> AtletaLab</a>
+    <nav class="main">
+      <a href="/">Strumenti</a>
+      <a href="/blog/">Articoli</a>
+      <a href="/chi-siamo.html">Chi siamo</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div class="wrap">
+    <section class="pannello">
+      <h1>FTP e zone di potenza</h1>
+      <p>La FTP (Functional Threshold Power) è la potenza massima che riesci a sostenere per circa un'ora. Inserisci il risultato di un test per calcolarla e ottenere le 7 zone di allenamento secondo il modello di Andrew Coggan.</p>
+
+      <form id="form-ftp">
+        <div class="riga-campi">
+          <div>
+            <label>Tipo di test</label>
+            <div style="margin-top:8px;">
+              <label style="display:inline;font-weight:400;"><input type="radio" name="tipo-test" value="20min" checked style="width:auto;"> Test di 20 minuti</label><br>
+              <label style="display:inline;font-weight:400;"><input type="radio" name="tipo-test" value="60min" style="width:auto;"> Test di 60 minuti</label>
+            </div>
+          </div>
+          <div>
+            <label for="potenza-media">Potenza media del test (watt)</label>
+            <input type="number" id="potenza-media" min="30" step="1" placeholder="es. 250" required>
+          </div>
+        </div>
+        <button class="calcola" type="submit">Calcola FTP</button>
+      </form>
+
+      <div class="risultato" id="risultato-ftp">
+        <div>FTP stimata: <span class="num" id="out-ftp"></span></div>
+        <table>
+          <thead><tr><th>Zona</th><th>Potenza</th></tr></thead>
+          <tbody id="tabella-zone-ftp"></tbody>
+        </table>
+        <p class="nota">Nel test di 20 minuti la FTP è stimata al 95% della potenza media (per tenere conto della maggiore intensità sostenibile in 20 minuti rispetto a un'ora). Le zone seguono il modello a 7 livelli di Andrew Coggan.</p>
+      </div>
+    </section>
+
+    <div class="ad-slot">Spazio pubblicitario (attivo dopo l'approvazione di Google AdSense)</div>
+  </div>
+</main>
+
+<footer class="site">
+  <div class="wrap">
+    <div>© <span id="anno"></span> AtletaLab</div>
+    <div class="links"><a href="/privacy.html">Privacy</a><a href="/chi-siamo.html">Chi siamo</a></div>
+  </div>
+</footer>
+
+<script src="../assets/js/calculators.js"></script>
+<script>document.getElementById('anno').textContent = new Date().getFullYear();</script>
+</body>
+</html>

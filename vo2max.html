@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Calcolatore VO2max (test di Cooper e da gara) — AtletaLab</title>
+<meta name="description" content="Stima il tuo VO2max dal test di Cooper di 12 minuti o dal risultato di una gara di corsa, con la formula di Daniels & Gilbert.">
+<link rel="canonical" href="https://TUO-UTENTE.github.io/atletalab/tools/vo2max.html">
+<link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+
+<header class="site">
+  <div class="wrap">
+    <a class="logo" href="/"><span class="badge">AL</span> AtletaLab</a>
+    <nav class="main">
+      <a href="/">Strumenti</a>
+      <a href="/blog/">Articoli</a>
+      <a href="/chi-siamo.html">Chi siamo</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div class="wrap">
+    <section class="pannello">
+      <h1>Stima del VO2max</h1>
+      <p>Il VO2max è il massimo volume di ossigeno che il tuo corpo riesce a utilizzare durante uno sforzo intenso: è uno degli indicatori più usati in fisiologia dell'esercizio per stimare la capacità aerobica. Puoi stimarlo in due modi.</p>
+
+      <h2>Metodo 1 — Test di Cooper (12 minuti)</h2>
+      <p>Corri alla massima intensità sostenibile per 12 minuti e misura la distanza percorsa.</p>
+      <form id="form-cooper">
+        <div class="riga-campi">
+          <div>
+            <label for="metri-cooper">Distanza percorsa in 12 minuti (metri)</label>
+            <input type="number" id="metri-cooper" min="500" step="1" placeholder="es. 2800" required>
+          </div>
+        </div>
+        <button class="calcola" type="submit">Calcola VO2max</button>
+      </form>
+      <div class="risultato" id="risultato-cooper">
+        VO2max stimato: <span class="num" id="out-cooper"></span>
+      </div>
+
+      <h2 style="margin-top:32px;">Metodo 2 — Da un risultato di gara</h2>
+      <p>Più preciso se hai corso una gara recente alla massima intensità possibile per quella distanza.</p>
+      <form id="form-gara">
+        <div class="riga-campi">
+          <div>
+            <label for="distanza-gara">Distanza di gara (km)</label>
+            <input type="number" id="distanza-gara" step="0.001" min="0.5" placeholder="es. 10" required>
+          </div>
+          <div>
+            <label for="ore-gara">Ore</label>
+            <input type="number" id="ore-gara" min="0" value="0">
+          </div>
+          <div>
+            <label for="minuti-gara">Minuti</label>
+            <input type="number" id="minuti-gara" min="0" max="59" value="0">
+          </div>
+          <div>
+            <label for="secondi-gara">Secondi</label>
+            <input type="number" id="secondi-gara" min="0" max="59" value="0">
+          </div>
+        </div>
+        <button class="calcola" type="submit">Calcola VDOT</button>
+      </form>
+      <div class="risultato" id="risultato-gara">
+        VDOT (VO2max stimato): <span class="num" id="out-vdot"></span> ml/kg/min
+        <p class="nota">Calcolato con il modello di Jack Daniels &amp; Jimmy Gilbert (1979), lo stesso usato dalle più diffuse tabelle di allenamento per corridori.</p>
+      </div>
+    </section>
+
+    <div class="ad-slot">Spazio pubblicitario (attivo dopo l'approvazione di Google AdSense)</div>
+  </div>
+</main>
+
+<footer class="site">
+  <div class="wrap">
+    <div>© <span id="anno"></span> AtletaLab</div>
+    <div class="links"><a href="/privacy.html">Privacy</a><a href="/chi-siamo.html">Chi siamo</a></div>
+  </div>
+</footer>
+
+<script src="../assets/js/calculators.js"></script>
+<script>document.getElementById('anno').textContent = new Date().getFullYear();</script>
+</body>
+</html>

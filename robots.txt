@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://TUO-UTENTE.github.io/atletalab/sitemap.xml

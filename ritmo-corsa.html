@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Calcolatore del ritmo di corsa (pace) — AtletaLab</title>
+<meta name="description" content="Calcola il tuo ritmo al km, la velocità media e previsioni dei tempi su 5K, 10K, mezza maratona e maratona con la formula di Riegel.">
+<link rel="canonical" href="https://TUO-UTENTE.github.io/atletalab/tools/ritmo-corsa.html">
+<link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+
+<header class="site">
+  <div class="wrap">
+    <a class="logo" href="/"><span class="badge">AL</span> AtletaLab</a>
+    <nav class="main">
+      <a href="/">Strumenti</a>
+      <a href="/blog/">Articoli</a>
+      <a href="/chi-siamo.html">Chi siamo</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div class="wrap">
+    <section class="pannello">
+      <h1>Calcolatore del ritmo di corsa</h1>
+      <p>Inserisci la distanza percorsa e il tempo impiegato: calcoleremo il tuo ritmo medio al chilometro, la velocità e una previsione dei tempi su altre distanze standard (formula di Riegel).</p>
+
+      <form id="form-ritmo">
+        <div class="riga-campi">
+          <div>
+            <label for="distanza">Distanza (km)</label>
+            <input type="number" id="distanza" step="0.001" min="0.1" placeholder="es. 10" required>
+          </div>
+          <div>
+            <label for="ore">Ore</label>
+            <input type="number" id="ore" min="0" value="0">
+          </div>
+          <div>
+            <label for="minuti">Minuti</label>
+            <input type="number" id="minuti" min="0" max="59" value="0">
+          </div>
+          <div>
+            <label for="secondi">Secondi</label>
+            <input type="number" id="secondi" min="0" max="59" value="0">
+          </div>
+        </div>
+        <button class="calcola" type="submit">Calcola</button>
+      </form>
+
+      <div class="risultato" id="risultato-ritmo">
+        <div>Ritmo medio: <span class="num" id="out-ritmo"></span></div>
+        <div>Velocità media: <strong id="out-velocita"></strong></div>
+        <h2 style="margin-top:20px;">Tempi previsti su altre distanze</h2>
+        <table>
+          <thead><tr><th>Distanza</th><th>Tempo previsto</th></tr></thead>
+          <tbody id="tabella-previsioni"></tbody>
+        </table>
+        <p class="nota">Le previsioni usano la formula di Riegel (T₂ = T₁ × (D₂/D₁)^1.06), valida per prestazioni simili nella stessa sessione di allenamento o forma fisica attuale: sono una stima, non una garanzia di risultato in gara.</p>
+      </div>
+    </section>
+
+    <div class="ad-slot">Spazio pubblicitario (attivo dopo l'approvazione di Google AdSense)</div>
+  </div>
+</main>
+
+<footer class="site">
+  <div class="wrap">
+    <div>© <span id="anno"></span> AtletaLab</div>
+    <div class="links"><a href="/privacy.html">Privacy</a><a href="/chi-siamo.html">Chi siamo</a></div>
+  </div>
+</footer>
+
+<script src="../assets/js/calculators.js"></script>
+<script>document.getElementById('anno').textContent = new Date().getFullYear();</script>
+</body>
+</html>

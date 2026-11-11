@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Calcolatore zone di frequenza cardiaca (Karvonen) — AtletaLab</title>
+<meta name="description" content="Calcola le tue zone di allenamento cardiaco con il metodo di Karvonen, scegliendo tra la formula di Tanaka e quella classica 220-età.">
+<link rel="canonical" href="https://TUO-UTENTE.github.io/atletalab/tools/zone-frequenza-cardiaca.html">
+<link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+
+<header class="site">
+  <div class="wrap">
+    <a class="logo" href="/"><span class="badge">AL</span> AtletaLab</a>
+    <nav class="main">
+      <a href="/">Strumenti</a>
+      <a href="/blog/">Articoli</a>
+      <a href="/chi-siamo.html">Chi siamo</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div class="wrap">
+    <section class="pannello">
+      <h1>Zone di frequenza cardiaca</h1>
+      <p>Le zone di frequenza cardiaca aiutano a dosare l'intensità degli allenamenti. Usiamo il metodo di Karvonen (riserva cardiaca) se inserisci la frequenza a riposo, oppure la semplice percentuale della frequenza massima se la lasci vuota.</p>
+
+      <form id="form-fc">
+        <div class="riga-campi">
+          <div>
+            <label for="eta">Età</label>
+            <input type="number" id="eta" min="10" max="100" placeholder="es. 24" required>
+          </div>
+          <div>
+            <label for="fc-riposo">FC a riposo (opzionale, bpm)</label>
+            <input type="number" id="fc-riposo" min="30" max="120" placeholder="es. 55">
+          </div>
+          <div>
+            <label for="fc-max-nota">FC massima nota (opzionale, bpm)</label>
+            <input type="number" id="fc-max-nota" min="120" max="230" placeholder="se misurata">
+          </div>
+          <div>
+            <label for="formula-fcmax">Formula FC max (se non nota)</label>
+            <select id="formula-fcmax">
+              <option value="tanaka">Tanaka (208 − 0,7 × età) — più precisa</option>
+              <option value="classica">Classica (220 − età)</option>
+            </select>
+          </div>
+        </div>
+        <button class="calcola" type="submit">Calcola le zone</button>
+      </form>
+
+      <div class="risultato" id="risultato-fc">
+        <div>FC massima stimata: <span class="num" id="out-fcmax"></span></div>
+        <table>
+          <thead><tr><th>Zona</th><th>Intervallo (bpm)</th></tr></thead>
+          <tbody id="tabella-zone-fc"></tbody>
+        </table>
+        <p class="nota">La formula di Tanaka (2001) è generalmente più accurata della vecchia regola "220 − età", soprattutto dopo i 40 anni. Il metodo di Karvonen (usato quando inserisci la FC a riposo) tiene conto anche del tuo livello di allenamento attuale.</p>
+      </div>
+    </section>
+
+    <div class="ad-slot">Spazio pubblicitario (attivo dopo l'approvazione di Google AdSense)</div>
+  </div>
+</main>
+
+<footer class="site">
+  <div class="wrap">
+    <div>© <span id="anno"></span> AtletaLab</div>
+    <div class="links"><a href="/privacy.html">Privacy</a><a href="/chi-siamo.html">Chi siamo</a></div>
+  </div>
+</footer>
+
+<script src="../assets/js/calculators.js"></script>
+<script>document.getElementById('anno').textContent = new Date().getFullYear();</script>
+</body>
+</html>
